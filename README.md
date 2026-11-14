@@ -4,6 +4,8 @@ Vídeo da apresentação: (link do YouTube)
 
 Grupo: TDE2 4
 
+Linguagem: Python 3.10 ou superior.
+
 ## Parte 1: Jantar dos filósofos
 
 ### Como o problema funciona
@@ -12,10 +14,10 @@ Cinco filósofos se sentam em volta de uma mesa redonda e entre cada par de vizi
 ### PARTE 1 - Versão ingênua
 Nessa versão, o protocolo é o mais direto possível. Quando fica com fome, o filósofo pega o garfo esquerdo, depois ele pega o direito, come e solta os dois.
 Se o garfo que o filósofo quer está com o filósofo vizinho, a thread fica bloqueada no "acquire" até o vizinho soltar.
-O programa escreve no console cada mudança de estado (pensando, com fome, comendo) junto com o tempo desde o ínicio, assim como registra quando um filósofo tenta pegar, pegou ou soltou um garfo.
+O programa escreve no console cada mudança de estado (pensando, com fome, comendo) junto com o tempo desde o início, assim como registra quando um filósofo tenta pegar, pegou ou soltou um garfo.
 
 ### Por que o impasse acontece
-O problema acontece quando os cincoficam com fome mais ou menos no mesmo tempo. Cada filósofo consegue pegar o garfo esquerdo, porque ninguém estava usando. Depois todos tentam pegar o direito, mas o garfo direito de cada filósofo é o esquerdo do vizinho que já foi pego. Depois todos tentam o direito, mas o garfo direito de cada filósofo é o esquerdo do vizinho que já foi pego. Por consequência, cada um espera um garfo que só volta para a mesa depois que o vizinho comer, e o vizinho não come porque também está esperando. Ninguém solta nada e o programa fica parado para sempre.
+O problema acontece quando os cinco ficam com fome mais ou menos no mesmo tempo. Cada filósofo consegue pegar o garfo esquerdo, porque ninguém estava usando. Depois todos tentam pegar o direito, mas o garfo direito de cada filósofo é o esquerdo do vizinho que já foi pego. Por consequência, cada um espera um garfo que só volta para a mesa depois que o vizinho comer, e o vizinho não come porque também está esperando. Ninguém solta nada e o programa fica parado para sempre.
 
 Nesse caso, as quatros condições de Coffman se encontram presentes. O garfo só pode estar com um filósofo por vez (exclusão mútua), cada um segura um garfo enquanto espera o outro (manter e esperar), ninguém tira o garfo da mão do vizinho (não preempção), e por fim, a espera dá a volta na mesa: o 1 espera o 2, o 2 espera o 3, e por assim vai até chegar no 5 que espera o 1 (espera circular).
 
@@ -34,7 +36,7 @@ python parte_1_versao_ingenua.py
 ```
 No topo do arquivo ficam as constantes usadas no programa. Se quiser testar sem a pausa entre pegar o garfo, basta substituir o valor da constante "PAUSA_ENTRE_GARFOS" para 0
 
-### Pseudocódigo da versão ingênua
+### Pseudocódigo da versão ingênu
 ```
 N = 5
 garfos 1..N, o garfo i fica entre os filósofos i e i+1 (o garfo N fica entre N e 1)
@@ -57,7 +59,6 @@ para cada filósofo p:
 ```
 ### Log de uma execução com deadlock
 ```
-PS C:\Users\Willian\AppData\Local\Programs\Microsoft VS Code> & 'C:\Users\Willian\AppData\Local\Programs\Python\Python314\python.exe' 'c:/Projetos/tde_performance/parte_1/parte_1_versao_ingenua.py'
 [0.001s] Filósofo 1 está pensando
 [0.001s] Filósofo 2 está pensando
 [0.002s] Filósofo 3 está pensando
@@ -84,12 +85,11 @@ PS C:\Users\Willian\AppData\Local\Programs\Microsoft VS Code> & 'C:\Users\Willia
 [0.970s] Filósofo 5 tenta pegar o garfo 5 (direito)
 [1.002s] Filósofo 3 tenta pegar o garfo 3 (direito)
 Deadlock! Todos os filósofos continuam com fome há mais de 3 segundos e ninguém consegue comer
-PS C:\Users\Willian\AppData\Local\Programs\Microsoft VS Code> 
 ```
 Como deu para ver: Nenhum filósofo chegou a comer. Cada um pegou o seu garfo esquerdo e ficou tentando pegar o direito, e as cinco últimas linhas do log mostram isso.
 
-# PARTE 1 - Versão corrigida
+## PARTE 1 - Versão corrigida
 
-# PARTE 2
+## PARTE 2
 
-# PARTE 3
+## PARTE 3
