@@ -4,11 +4,11 @@ Vídeo da apresentação: (link do YouTube)
 
 Grupo: TDE2 4
 
-Integrantes:
-Willian Anderson da Rocha
-Felipe Rodrigues Milicio
-Millena Gurczakovski
-Clara Miyamoto Yajima
+Integrantes:  
+Willian Anderson da Rocha  
+Felipe Rodrigues Milicio  
+Millena Gurczakovski  
+Clara Miyamoto Yajima  
 
 Linguagem: Python 3.10 ou superior.
 
