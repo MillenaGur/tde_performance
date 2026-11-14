@@ -55,7 +55,7 @@ para cada filósofo p:
         liberar(esquerdo)
         estado[p] <- "pensando"
 ```
-### Log de uam execução com deadlock
+### Log de uma execução com deadlock
 ```
 PS C:\Users\Willian\AppData\Local\Programs\Microsoft VS Code> & 'C:\Users\Willian\AppData\Local\Programs\Python\Python314\python.exe' 'c:/Projetos/tde_performance/parte_1/parte_1_versao_ingenua.py'
 [0.001s] Filósofo 1 está pensando
